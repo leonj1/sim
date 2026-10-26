@@ -9,7 +9,7 @@ on:
 jobs:
   test:
     name: Test and Build
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     steps:
       - name: Checkout code
@@ -55,7 +55,7 @@ jobs:
 
   migrations:
     name: Apply Database Migrations
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: test
     steps:
